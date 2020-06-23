@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Cotrol</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="home">
+            <div class="col-sm-5 col-lg-3" id="left-part">
+                <div class="row  overflow-auto" id="left-fhalf">
+                    <div class="col-12">
+                       <div class="row bg-primary text-white p-1 rounded-top">
+                           System and Connection Status
+                       </div>                    
+                        <div class="row p-2">
+                            <p class="h6">Status:&nbsp;</p><p class="h6 text-danger">Disconnected</p>                            
+                        </div>                     
+                        <div class="row p-2">
+                            <p class="h6">Date:&nbsp;</p><p class="h6 text-success" id="date"></p>                                                    
+                        </div>                     
+                        <div class="row p-2">
+                            <p class="h6">Time:&nbsp;</p><p class="h6 text-success" id="time"></p>                            
+                        </div>                     
+                        <div class="row p-2">
+                            <p class="h6">Temperature:&nbsp;</p><p class="h6 text-danger">Unavailable</p>                            
+                        </div>                     
+                        <div class="row p-2">
+                            <p class="h6">Water Level:&nbsp;</p><p class="h6 text-danger">Unavailable</p>                             
+                        </div>                     
+                        <div class="row p-2">
+                            <p class="h6">Enviornment:&nbsp;</p><p class="h6 text-danger">Unavailable</p>                             
+                        </div>                
+                    </div>
+                </div>
+                <div class="row border-top" id="left-shalf">   
+                    <div class="col-12 ">
+                        <div class="row bg-primary text-white p-1 rounded-top">
+                            Manual Controls
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 text-center my-1">
+                                    <label class="h5" for="">Trigger Manual:&nbsp;</label>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 text-center my-3">
+                                    <button class="rounded-pill col-3 btn btn-success">
+                                        <svg class="bi bi-caret-up" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M3.204 11L8 5.519 12.796 11H3.204zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button class="rounded-pill col-3 btn btn-success">
+                                        <svg class="bi bi-caret-left" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="rounded-pill col-3 btn btn-success ">
+                                        <svg class="bi bi-app" width="1.5em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M11 2H5a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+                                          </svg>
+                                    </button>
+                                    <button class="rounded-pill col-3 btn btn-success">
+                                        <svg class="bi bi-caret-right" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M6 12.796L11.481 8 6 3.204v9.592zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 text-center my-3">
+                                    <button class="rounded-pill col-3 btn btn-success">
+                                        <svg class="bi bi-caret-down" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="px-5 col-12 text-center my-2">
+                                    <button class=" mx-auto col btn btn-danger">
+                                        Extinguish
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+            <div class="col-sm-7 col-lg-9" id="right-part">
+                <div class="row rounded  border rounded-bottom  bg-primary text-white" id="right-fhalf">
+                    <div class="col-12 ">
+                        <div class="row bg-primary text-white p-1 rounded-top">Video Stream</div>
+                     </div>
+                </div>
+                <div class="row border rounded" id="right-shalf">   
+                    <div class="col-sm-6 border rounded bg-dark" id="right-bottom-left">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <div class="row bg-primary text-white p-1 rounded-top">Command Line</div>
+                            </div>
+                        </div>
+                        <div class="row px-2 text-white" id="terminal-display">
+                            Nothing To Show_
+                        </div>
+                        <div class="row col-12 rounded p-1" id="command-input">
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" placeholder="Type a command to send" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                  <button class="btn btn-success" type="button">Send</button>
+                                </div>
+                              </div>
+                        </div> 
+                    </div>
+                    <div class="col-sm-6 border rounded" id="right-map"> 
+                        <div class="row">                            
+                            <div class="col-12">
+                                <div class="row bg-primary text-white p-1 rounded-top">Location</div>                                
+                            </div>                                 
+                        </div> 
+                        <div class="row">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31238.689322962666!2d76.70328126627119!3d9.898527173836788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c40a315b6705%3A0x4a8f3d2b78b03d27!2sThodupuzha%2C%20Kerala!5e1!3m2!1sen!2sin!4v1590291836330!5m2!1sen!2sin" width=100% frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                            </iframe>
+                        </div>                               
+                    </div>               
+                </div>
+            </div>
+        </div>
+    </div>    
+    <script src="js/script.js"></script>
+    </body>
+</html>
